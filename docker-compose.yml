@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  elitea:
+    build: .
+    container_name: elitea-pipeline
+    environment:
+      # GitHub Configuration
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      
+      # Confluence Configuration  
+      CONFLUENCE_URL: ${CONFLUENCE_URL}
+      CONFLUENCE_USERNAME: ${CONFLUENCE_USERNAME}
+      CONFLUENCE_API_TOKEN: ${CONFLUENCE_API_TOKEN}
+      CONFLUENCE_SPACE: ${CONFLUENCE_SPACE:-DOC}
+      
+      # Claude API Configuration
+      CLAUDE_API_KEY: ${CLAUDE_API_KEY}
+      CLAUDE_MODEL: ${CLAUDE_MODEL:-claude-3-sonnet-20240229}
+      
+      # Logging
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      
+    volumes:
+      # Mount output directory for saving files
+      - ./output:/app/output
+      
+      # Mount .env file for credentials (optional)
+      - ./.env:/app/.env:ro
+    
+    # Example command - override as needed
+    command: |
+      --repo ${REPO_URL}
+      --template Technical-App-Manifest-v1
+      --space ${CONFLUENCE_SPACE:-DOC}
+      --verbose
+
+# Run with:
+# docker-compose up
+#
+# Or with environment variables:
+# GITHUB_TOKEN=ghp_xxx CLAUDE_API_KEY=sk-xxx docker-compose up
+#
+# Or for dry-run:
+# docker-compose run elitea \
+#   --repo https://github.com/owner/repo \
+#   --dry-run \
+#   --verbose
