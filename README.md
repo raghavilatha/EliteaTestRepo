@@ -68,3 +68,9 @@ docker run -e GITHUB_TOKEN=xxx -e CLAUDE_API_KEY=yyy elitea \
 ## License
 
 MIT
+
+## Owner
+
+
+Service_owner = Raghavi
+business_impact=high.
