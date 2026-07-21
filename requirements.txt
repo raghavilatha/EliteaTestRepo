@@ -6,3 +6,5 @@ anthropic==0.7.1
 PyGithub==1.59.1
 atlassian-python-api==3.41.0
 pyyaml==6.0.1
+SERVICE_OWNER=Raghavi
+BUSINESS_IMPACT=high
