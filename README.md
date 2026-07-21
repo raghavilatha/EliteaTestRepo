@@ -20,7 +20,11 @@ cp .env.example .env
 
 # Run
 python main.py --repo https://github.com/owner/repo --dry-run -v
-```
+
+## team
+
+Service_owner = Raghavi,
+business_impact=high.
 
 ## Requirements
 
@@ -69,8 +73,4 @@ docker run -e GITHUB_TOKEN=xxx -e CLAUDE_API_KEY=yyy elitea \
 
 MIT
 
-## Owner
 
-
-Service_owner = Raghavi
-business_impact=high.
