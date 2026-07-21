@@ -1,4 +1,6 @@
-# Python Project
+# EliteA Pipeline
+
+Automated Confluence documentation generation from GitHub repositories using Claude AI.
 
 ## Quick Start
 
